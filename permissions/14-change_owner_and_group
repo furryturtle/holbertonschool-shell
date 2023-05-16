@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod +x 14-change_owner_and_group
+chown -R vincent:staff /path/to/holbertonschool-shell/permissions
