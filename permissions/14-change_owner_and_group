@@ -1,3 +1,2 @@
 #!/bin/bash
-chgrp -R staff /root/holbertonschool-shell/permissions
-chown -R vincent /root/holbertonschool-shell/permissions
+chgrp -R staff /root/holbertonschool-shell/permissions chown -R vincent /root/holbertonschool-shell/permissions
