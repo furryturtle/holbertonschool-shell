@@ -4,3 +4,5 @@ just the commands
 	#!/bin/bash
 	su betty
 
+i
+
