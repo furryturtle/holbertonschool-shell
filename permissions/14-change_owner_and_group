@@ -1,2 +1,2 @@
 #!/bin/bash
-find /root/holbertonschool-shell/permissions -perm -777 -exec chown vincent:staff {} +
+chown -R vincent:staff .
