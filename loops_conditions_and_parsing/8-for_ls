@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Writes a script that displays the content of the current directory in a list format, where only part of the name, after the first dash, is displayed
+#ls | cut -d '-' -f2
+#ls | while read line; do cut -d '-' -f2; done
+for manyfiles in *
+do
+	echo "$manyfiles" | cut -d- -f2
+done
