@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Writes a script to Open the /etc/passwd file for reading
+exec 3< /etc/passwd
+# Read each line of the file
+
+while IFS=: read -u 3 -r username _ userid _ _ home _; do
+
+    echo "Username: $username"
+
+    echo "User ID: $userid"
+
+    echo "Home Directory: $home"
+
+done
+
+
+
+# Close the file descriptor
+
+exec 3<&-
