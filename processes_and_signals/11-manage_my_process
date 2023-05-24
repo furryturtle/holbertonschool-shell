@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+# ugh almost over
+
+MANAGE_MY_PROCESS_SCRIPT="/root/holbertonschool-shell/processes_and_signals/manage_my_process"
+
+PID_FILE="/var/run/my_process.pid"
+
+
+
+start_process() {
+
+  if [ -f "$PID_FILE" ]; then
+
+    echo "Error: manage_my_process is already running."
+
+    exit 1
+
+  fi
+
+
+
+  "$MANAGE_MY_PROCESS_SCRIPT" &
+
+  echo $! > "$PID_FILE"
+
+  echo "manage_my_process started."
+
+}
+
+
+
+stop_process() {
+
+  if [ -f "$PID_FILE" ]; then
+
+    pid=$(cat "$PID_FILE")
+
+    kill "$pid"
+
+    rm -f "$PID_FILE"
+
+    echo "manage_my_process stopped."
+
+  else
+
+    echo "Error: manage_my_process is not running."
+
+    exit 1
+
+  fi
+
+}
+
+
+
+restart_process() {
+
+  stop_process
+
+  start_process
+
+  echo "manage_my_process restarted."
+
+}
+
+
+
+case "$1" in
+
+  start)
+
+    start_process
+
+    ;;
+
+  stop)
+
+    stop_process
+
+    ;;
+
+  restart)
+
+    restart_process
+
+    ;;
+
+  *)
+
+    echo "Usage: $0 {start|stop|restart}"
+
+    exit 1
+
+    ;;
+
+esac
