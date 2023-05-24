@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# writes script for 9
+
+p SIGTERM signal
+
+trap "echo 'I hate the kill command'; exit" SIGTERM
+
+
+
+# Trap SIGINT signal
+
+trap "echo 'Y U no love me?!'" SIGINT
+
+
+
+# Trap SIGQUIT signal
+
+trap "rm -f /var/run/myscript.pid; exit" SIGQUIT
+
+
+
+# Create PID file
+
+echo $$ > /var/run/myscript.pid
+
+
+
+# Display message indefinitely
+
+while true; do
+
+  echo "To infinity and beyond"
+
+  sleep 1
+
+done
+
